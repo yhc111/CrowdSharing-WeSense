@@ -1,0 +1,41 @@
+.top{
+    /* 设置宽度高度背景颜色 */
+    height: auto; /*高度改为自动高度*/
+    width:70%;
+    border-radius: 10px;
+    background-color: #2D3035;
+    margin-right: 0px;
+    margin-bottom: 5px;
+}
+.top ul{
+    /* 清除ul标签的默认样式 */
+    width: 100%;/*宽度也改为自动*/
+    list-style-type: none;
+    margin-top: 20px;
+    white-space:nowrap;
+    overflow: hidden;
+    margin-left: 85%;
+    text-align: center;
+    padding: 0;
+
+}
+.top li {
+    float:left; /* 使li内容横向浮动，即横向排列  */
+    margin-right:10px;   /*两个li之间的距离*/
+    line-height: 5px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+	}
+	
+.top li a{
+    /* 设置链接内容显示的格式*/
+    display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
+    color:#8A8D93;
+    line-height: 5px; /* 调整行高 */
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+    font-size: 18px;
+    text-decoration: none; /* 去除下划线 */
+}

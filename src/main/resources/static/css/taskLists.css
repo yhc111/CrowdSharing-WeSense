@@ -1,0 +1,25 @@
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    margin: 0 4px; /* 0 对应的是头部与底部，可以修改它看看效果 */
+}
+
+ul.pagination li a.active {
+    background-color: gray;
+    color: red;
+    border-radius: 5px;
+}
+
+ul.pagination li a:hover:not(.active) {background-color: gray;}

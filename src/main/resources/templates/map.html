@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CrowdOS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="/css/font.css">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <style>
+    	#mapContainer1{
+    		width: 1200px;
+    		height: 550px;
+    	}
+    	#mapContainer2{
+    		width: 1200px;
+    		height: 550px;
+    		margin-top: 30px;
+    		margin-bottom: 50px;
+    	}
+    	#mapInfo{
+    		text-align: center;
+    		width: 150px;
+    		height: 30px;
+    		position: absolute;
+    		background-color: #000000;
+    		top: 520px;
+    		z-index: 200;
+    	}
+    	#mapInfo2{
+    		text-align: center;
+    		width: 150px;
+    		height: 30px;
+    		position: absolute;
+    		background-color: #F8F9FA;
+    		top: 520px;
+    		z-index: 200;
+    	}
+    </style>
+  </head>
+  <body>
+    <header class="header">   
+      <nav class="navbar navbar-expand-lg">
+      	<!--头部查找框-->
+        <div class="search-panel">
+          <div class="search-inner d-flex align-items-center justify-content-center">
+            <div class="close-btn">Close <i class="fa fa-close"></i></div>
+            <form id="searchForm" action="#">
+              <div class="form-group">
+                <input type="search" name="search" placeholder="What are you searching for...">
+                <button type="submit" class="submit">Search</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <div class="navbar-header">
+            <!-- 导航栏头部CrowdOS字样--><a href="index" class="navbar-brand">
+              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">C</strong><strong class="text-primary text-lowercase">rowd</strong><strong>OS</strong></div>
+              <div class="brand-text brand-sm"><strong class="text-primary">C</strong><strong>OS</strong></div></a>
+            <!-- CrowdOS字样旁边的箭头-->
+            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+          </div>
+          <div class="top">
+            <ul>
+              <li><a href="index" class="nav-link">Home</a></li>
+              <li><a href="mytasks" class="nav-link">My tasks</a></li>
+            </ul>
+          </div>
+            <!--导航栏右边部分-->
+          	<div class="right-menu list-inline no-margin-bottom">    
+            <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="fa fa-search"></i></a></div>
+
+            <!-- 语言转换-->
+            <div class="list-inline-item dropdown">
+            	<a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle">
+            		<img src="img/flags/16/GB.png" alt="English">
+            		<span class="d-none d-sm-inline-block">English</span>
+            	</a>
+              <div aria-labelledby="languages" class="dropdown-menu">
+              	<a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/CN.png" alt="English" class="mr-2"><span>China</span>
+              	</a>
+              </div>
+            </div>
+            <!-- 退出按钮-->
+            <div class="list-inline-item logout">
+            	<a id="logout" href="login" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="fa fa-sign-out"></i>
+            	</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <!-- 左边导航栏 -->
+      <nav id="sidebar">
+        <!-- Sidebar Header-->
+        <div class="sidebar-header d-flex align-items-center">
+          <div class="avatar"><img src="img/avatar-6.png" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="title">
+            <h1 class="h5" id="UsernameInfo">User</h1>
+          </div>
+        </div>
+        <!-- 左侧导航栏各项功能 -->
+        <span class="heading">Main</span>
+        <ul class="list-unstyled">
+          <li><a href="index"> <i class="fa fa-home"></i>Home </a></li>
+          <!--<li><a href="tables"> <i class="fa fa-bar-chart"></i>Task Information </a></li>-->
+          <li><a href="taskLists"> <i class="fa fa-bar-chart"></i>Task lists </a></li>
+          <li class="active"><a href="map"> <i class="fa fa-map"></i>Heat map </a></li>
+          <li><a href="visualization2"> <i class="fa fa-align-left"></i>Statistics </a></li>
+          <li><a href="download"><i class="fa fa-download"></i>Download </a></li>
+          <li><a href="upload"><i class="fa fa-upload"></i>Upload</a>
+          <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-bars"></i>Task management</a>
+            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+              <li><a href="#">Publish task</a></li>
+              <li><a href="#">Accept task</a></li>
+              <li><a href="#">Administrator operation</a></li>
+              <li><a href="task_data">Task Data</a></li>
+            </ul>
+          </li>
+          <li><a href="login"> <i class="fa fa-sign-out"></i>Login page </a></li>
+        </ul>
+        <!--<span class="heading">Extras</span>-->
+        <!--<ul class="list-unstyled">
+          <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
+          <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
+        </ul>-->
+      </nav>
+      <!-- Sidebar Navigation end-->
+      <div class="page-content">
+        <!-- Page Header-->
+        <div class="page-header no-margin-bottom">
+          <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">Show data on map</h2>
+          </div>
+        </div>
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Map        </li>
+          </ul>
+        </div>
+        <div class="col-lg-12 mapOuter" align="center">
+          <div id="mapContainer1" align="center">
+            <div id="mapInfo">Task Heat</div>
+          </div>
+        </div>
+        <div class="col-lg-12 mapOuter" align="center">
+          <div id="mapContainer2" align="center">
+            <div id="mapInfo2">Task Location</div>
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="footer__block block no-margin-bottom">
+            <div class="container-fluid text-center">
+              <!-- 版权信息 -->
+              <p>© CrowdOS </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/front.js"></script>
+    <script src="js/map.js"></script>
+
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=6da0bd955cdbabe028e07900b0f342f1"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/resource/heatmapData.js"></script>
+    <!-- UI组件库 -->
+    <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+    <script type="text/javascript">
+
+      var UsernameInfo = document.getElementById("UsernameInfo");
+      //var RoleInfo = document.getElementById("RoleInfo");
+      const arr = document.cookie.split(";");//获取cookie字符串并分割
+      //遍历匹配
+      for(var i=0; i<arr.length; i++){
+        var a = arr[i].split("=");
+        if(a[0].trim() === "userName"){
+          UsernameInfo.innerHTML = a[1];
+        }else{
+          //RoleInfo.innerHTML = a[1];
+        }
+      }
+
+      var mapObj = new AMap.Map('mapContainer1', {
+        center:[116.397445,39.909189],
+        //center:[108.947032,34.259439],
+        zoom:11,
+        mapStyle: 'amap://styles/darkblue',  //设置地图的显示样式
+      });
+
+      AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {
+        //缩放控件，显示Zoom值
+        mapObj.addControl(new BasicControl.Zoom({
+          position: 'lt',
+          showZoomNum: true
+        }));
+      });
+
+      //加载鹰眼
+      mapObj.plugin(["AMap.OverView"],function(){
+        view = new AMap.OverView();
+        mapObj.addControl(view);
+      });
+
+      var heatmap;
+      mapObj.plugin(["AMap.Heatmap"],function() {      //加载热力图插件
+        heatmap = new AMap.Heatmap(mapObj, {
+          radius: 25, //给定半径
+          opacity: [0, 0.8]
+        });    //在地图对象叠加热力图
+
+        heatmap.setDataSet({
+          data:heatmapData,
+          max:100
+        }); //设置热力图数据集
+        //具体参数见接口文档
+      });
+
+      var mapObj2 = new AMap.Map('mapContainer2', {
+        center:[108.947024,34.259451],
+        zoom:11,
+        mapStyle: 'amap://styles/macaron',
+      });
+
+      AMapUI.loadUI(['control/BasicControl'], function(BasicControl) {
+        //缩放控件，显示Zoom值
+        mapObj2.addControl(new BasicControl.Zoom({
+          position: 'lt',
+          showZoomNum: true
+        }));
+      });
+
+      //加载鹰眼
+      mapObj.plugin(["AMap.OverView"],function(){
+        view = new AMap.OverView();
+        mapObj2.addControl(view);
+      });
+
+      window.setInterval(function (){
+        // 清除marker
+        mapObj2.clearMap()
+
+        // 获取新marker
+        let points = [];
+        const xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange=function (){
+          if (xmlHttp.readyState===4 && xmlHttp.status === 200){
+            let responseData = JSON.parse(xmlHttp.responseText)
+            for (let i = 0; i < responseData.length; i++){
+              let responseDatum = responseData[i];
+              points.push({"lng": responseDatum.longitude, "lat": responseDatum.latitude, "count":responseDatum.coin})
+            }
+            for(i=0;i<points.length;i++){
+              addMarker(points[i]);
+            }
+          }
+        };
+        xmlHttp.open("GET", "http://localhost:8080/task/getAllUnfinishedTask", true);
+        xmlHttp.send();
+      }, 300_000); // 5分钟获取一次数据
+
+      var init_points =[
+        {"lng":108.947496,"lat":34.266322,"count":100},
+        {"lng":108.983716,"lat":34.258803,"count":110},
+        {"lng":108.921575,"lat":34.252702,"count":1515},
+        {"lng":108.958654,"lat":34.238938,"count":13},
+        {"lng":108.911447,"lat":34.246175,"count":14},
+        {"lng":108.968157,"lat":34.256638,"count":4646}
+      ];
+      for (let i = 0; i<init_points.length; i++){
+        addMarker(init_points[i]);
+      }
+
+      function addMarker(data){
+        marker = new AMap.Marker({
+          icon: "img/map-marker-blue.png",
+          position: [data.lng,data.lat],
+          offset: new AMap.Pixel(-13, -30)
+        });
+        marker.setMap(mapObj2);
+      }
+    </script>
+  </body>
+</html>

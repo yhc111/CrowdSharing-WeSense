@@ -1,0 +1,43 @@
+body{
+	text-align: center;
+}
+
+table{
+	margin: auto;
+	margin-top: 20px;
+}
+
+div h3{
+	margin-top: 20px;
+	text-align: left;
+	margin-left: 100px;
+}
+
+table{
+	font-family: verdana,arial,sans-serif;
+	font-size:15px;
+	color:#333333;
+	border-width: 2px;
+	border-color: #a9c6c9;
+	width: 90%;
+}
+table th {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	height: 50px;
+}
+table td {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	height: 50px;
+}
+.oddrowcolor{
+	background-color:#d4e3e5;
+}
+.evenrowcolor{
+	background-color:#c3dde0;
+}

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>CrowdOS</title>
+	<link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/docs-css-js/css/style.css">
+	<link rel="stylesheet" href="/docs-css-js/css/prettify.css">
+	<link rel="stylesheet" href="/docs-css-js/css/table.css">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="/img/favicon.png">
+</head>
+<body>
+	<nav>
+	  <div class="container">
+	    <h1>CrowdOS</h1>
+	    <div id="menu">
+	      <ul class="toplinks">
+	        <li><a href="index">Home</a></li>
+	        <li><a href="taskLists">Task lists</a></li>
+	        <li><a href="map">Heat map</a></li>
+	        <li><a href="visualization2">Statistics</a></li>
+	        <li><a href="mytasks">My tasks</a></li>
+	        <li><a href="download">Download</a></li>
+					<li><a href="upload"><i class="fa fa-upload"></i>Upload</a>
+				</ul>
+	    </div>
+	    <a id="menu-toggle" href="#" class=" ">&#9776;</a> 
+	  </div>
+	</nav>
+	<header>
+	  <div class="container">
+	    <h2 class="docs-header">My Tasks</h2>
+	  </div>
+	</header>
+ 
+    <div>
+        <h3>Published tasks(Unfinished)</h3>
+	</div>
+    
+	<!-- Table goes in the document BODY -->
+	<table class="altrowstable1" id="alternatecolor">
+		<thead>
+			<tr>
+				<th width="10%">Task ID</th>
+				<th width="20%">Task Name</th>
+				<th width="15%">Task Status</th>
+				<th width="15%">Coins</th>
+				<th width="15%">Deadline</th>
+				<th width="15%">Details</th>
+				<th width="10%">Data</th>
+			</tr>
+		</thead>
+		<tbody id="UnfiTask"></tbody>
+	</table>
+	
+	<div>
+        <h3>Published tasks(Finished)</h3>
+	</div>
+	
+	<table class="altrowstable2">
+		<thead>
+			<tr>
+				<th width="10%">Task ID</th>
+				<th width="20%">Task Name</th>
+				<th width="15%">Task Status</th>
+				<th width="15%">Coins</th>
+				<th width="15%">Deadline</th>
+				<th width="15%">Details</th>
+				<th width="10%">Data</th>
+			</tr>
+		</thead>
+		<tbody id="FiTask"></tbody>
+	</table>
+	
+	<div>
+        <h3>Received tasks</h3>
+	</div>
+	
+	<!-- Table goes in the document BODY -->
+	<table class="altrowstable3">
+		<thead>
+			<tr>
+				<th width="10%">Task ID</th>
+				<th width="20%">Task Name</th>
+				<th width="15%">Task Status</th>
+				<th width="15%">Coins</th>
+				<th width="15%">Deadline</th>
+				<th width="15%">Details</th>
+				<th width="10%">Data</th>
+			</tr>
+		</thead>
+		<tbody id="AcceptTask"></tbody>
+	</table>
+	<footer>
+	  <div class="container">
+	    <p> &copy; CrowdOS</p>
+	  </div>
+	</footer>
+	<script src="/docs-css-js/js/jquery.js"></script>
+	<script type="text/javascript" src="/docs-css-js/js/prettify/prettify.js"></script>
+	<script src="/docs-css-js/js/layout.js"></script>
+	<script src="/docs-css-js/js/jquery.localscroll-1.2.7.js" type="text/javascript"></script>
+	<script src="/docs-css-js/js/jquery.scrollTo-1.4.3.1.js" type="text/javascript"></script>
+	<script src="/js/mytasks.js"></script>
+</body>
+</html>

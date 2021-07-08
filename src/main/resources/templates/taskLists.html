@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CrowdOS</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome CSS-->
+  <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+  <!-- Custom Font Icons CSS-->
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/taskLists.css">
+  <!-- Google fonts - Muli-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+  <!-- theme stylesheet-->
+  <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet">
+  <!-- Custom stylesheet - for your changes-->
+  <link rel="stylesheet" href="/css/custom.css">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+<header class="header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="search-panel">
+      <div class="search-inner d-flex align-items-center justify-content-center">
+        <div class="close-btn">Close <i class="fa fa-close"></i></div>
+        <form id="searchForm" action="#">
+          <div class="form-group">
+            <input type="search" name="search" placeholder="What are you searching for...">
+            <button type="submit" class="submit">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <div class="navbar-header">
+        <!-- 导航栏头部CrowdOS字样--><a href="index.html" class="navbar-brand">
+        <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">C</strong><strong class="text-primary text-lowercase">rowd</strong><strong>OS</strong></div>
+        <div class="brand-text brand-sm"><strong class="text-primary">C</strong><strong>OS</strong></div></a>
+        <!-- Sidebar Toggle Btn-->
+        <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+      </div>
+      <div class="top">
+        <ul>
+          <li><a href="index" class="nav-link">Home</a></li>
+          <li><a href="mytasks" class="nav-link">My tasks</a></li>
+        </ul>
+      </div>
+      <div class="right-menu list-inline no-margin-bottom">
+        <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="fa fa-search"></i></a></div>
+
+        <!-- 语言转换-->
+        <div class="list-inline-item dropdown">
+          <a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle">
+            <img src="img/flags/16/GB.png" alt="English">
+            <span class="d-none d-sm-inline-block">English</span>
+          </a>
+          <div aria-labelledby="languages" class="dropdown-menu">
+            <a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/CN.png" alt="English" class="mr-2"><span>China</span>
+            </a>
+          </div>
+        </div>
+        <!-- 退出按钮-->
+        <div class="list-inline-item logout">
+          <a id="logout" href="login" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="fa fa-sign-out"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="d-flex align-items-stretch">
+  <!-- 左边导航栏 -->
+  <nav id="sidebar">
+    <!-- Sidebar Header-->
+    <div class="sidebar-header d-flex align-items-center">
+      <div class="avatar"><img src="img/avatar-6.png" alt="..." class="img-fluid rounded-circle"></div>
+      <div class="title">
+        <h1 class="h5" id="UsernameInfo">User</h1>
+        <!--<p id="RoleInfo">ID</p>-->
+      </div>
+    </div>
+    <!-- 左侧导航栏各项功能 -->
+    <span class="heading">Main</span>
+    <ul class="list-unstyled">
+      <li><a href="index"> <i class="fa fa-home"></i>Home </a></li>
+      <!--<li><a href="tables"> <i class="fa fa-bar-chart"></i>Task Information </a></li>-->
+      <li class="active"><a href="taskLists"> <i class="fa fa-bar-chart"></i>Task lists </a></li>
+      <li><a href="map"> <i class="fa fa-map"></i>Heat map </a></li>
+      <li><a href="visualization2"> <i class="fa fa-align-left"></i>Statistics </a></li>
+      <li><a href="download"><i class="fa fa-download"></i>Download </a></li>
+      <li><a href="upload"><i class="fa fa-upload"></i>Upload</a>
+      <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-bars"></i>Task management</a>
+        <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+          <li><a href="#">Publish task</a></li>
+          <li><a href="#">Accept task</a></li>
+          <li><a href="#">Administrator operation</a></li>
+          <li><a href="task_data">Task Data</a></li>
+        </ul>
+      </li>
+      <li><a href="login"> <i class="fa fa-sign-out"></i>Login page </a></li>
+    </ul>
+  </nav>
+  <!-- Sidebar Navigation end-->
+  <div class="page-content">
+    <!-- Page Header-->
+    <div class="page-header no-margin-bottom">
+      <div class="container-fluid">
+        <h2 class="h5 no-margin-bottom">Task List</h2>
+      </div>
+    </div>
+    <!-- Breadcrumb-->
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Home</a></li>
+        <li class="breadcrumb-item active">Task List        </li>
+      </ul>
+    </div>
+    <section class="no-padding-top">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="block margin-bottom-sm">
+              <div class="title"><strong>Unfinished Tasks</strong></div>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                  <tr align="center">
+                    <th width="5%">ID</th>
+                    <th width="20%">TaskName</th>
+                    <th width="15%">Publisher</th>
+                    <th width="10%">Workers</th>
+                    <th width="10%">Coins</th>
+                    <th width="25%">Details</th>
+                    <th width="15%">Data</th>
+                  </tr>
+                  </thead>
+                  <tbody id="UnfinishedTaskTable">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="block margin-bottom-sm">
+              <div class="title"><strong>Finished Tasks</strong></div>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                  <tr align="center">
+                    <th width="5%">ID</th>
+                    <th width="20%">TaskName</th>
+                    <th width="15%">Publisher</th>
+                    <th width="10%">Workers</th>
+                    <th width="10%">Coins</th>
+                    <th width="25%">Details</th>
+                    <th width="15%">Download</th>
+                  </tr>
+                  </thead>
+                  <tbody id="FinishedTaskTable">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid text-center" style="margin-bottom: 50px;">
+        <ul class="pagination"></ul>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__block block no-margin-bottom">
+        <div class="container-fluid text-center">
+          <p>© CrowdOS </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<!-- JavaScript files-->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/popper.js/umd/popper.min.js"> </script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/jquery.cookie/jquery.cookie.js"> </script>
+<script src="/vendor/chart.js/Chart.min.js"></script>
+<script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script src="/js/front.js"></script>
+<script src="/js/taskLists.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="team.crowdos.crowdsharing.mapper.appTaskMapper" >
+  <resultMap id="BaseResultMap" type="team.crowdos.crowdsharing.entity.appTask" >
+    <id column="taskId" property="taskid" jdbcType="INTEGER" />
+    <result column="taskName" property="taskname" jdbcType="VARCHAR" />
+    <result column="postTime" property="posttime" jdbcType="TIMESTAMP" />
+    <result column="deadLine" property="deadline" jdbcType="TIMESTAMP" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="coin" property="coin" jdbcType="REAL" />
+    <result column="describe_task" property="describe_task" jdbcType="VARCHAR" />
+    <result column="totalNum" property="totalnum" jdbcType="INTEGER" />
+    <result column="taskStatus" property="taskstatus" jdbcType="INTEGER" />
+    <result column="taskKind" property="taskkind" jdbcType="INTEGER" />
+    <result column="temp" property="temp" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="team.crowdos.crowdsharing.entity.appTask" extends="BaseResultMap" >
+    <result column="describe_task" property="describeTask" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    taskId, taskName, postTime, deadLine, userId, userName, coin, totalNum, taskStatus, 
+    taskKind, temp
+  </sql>
+  <sql id="Blob_Column_List" >
+    describe_task
+  </sql>
+
+  <select id="getAllNewTask" resultType="team.crowdos.crowdsharing.entity.appTask" parameterType="Map">
+    select * from task where postTime > #{before} and postTime &lt; #{now};
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="team.crowdos.crowdsharing.entity.appTask" >
+    insert into task (taskId, taskName, postTime, 
+      deadLine, userId, userName, 
+      coin, totalNum, taskStatus, 
+      taskKind, temp, describe_task
+      )
+    values (#{taskid,jdbcType=INTEGER}, #{taskname,jdbcType=VARCHAR}, #{posttime,jdbcType=TIMESTAMP}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{coin,jdbcType=REAL}, #{totalnum,jdbcType=INTEGER}, #{taskstatus,jdbcType=INTEGER}, 
+      #{taskkind,jdbcType=INTEGER}, #{temp,jdbcType=INTEGER}, #{describeTask,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="team.crowdos.crowdsharing.entity.appTask" >
+    insert into task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="taskid != null" >
+        taskId,
+      </if>
+      <if test="taskname != null" >
+        taskName,
+      </if>
+      <if test="posttime != null" >
+        postTime,
+      </if>
+      <if test="deadline != null" >
+        deadLine,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="coin != null" >
+        coin,
+      </if>
+      <if test="totalnum != null" >
+        totalNum,
+      </if>
+      <if test="taskstatus != null" >
+        taskStatus,
+      </if>
+      <if test="taskkind != null" >
+        taskKind,
+      </if>
+      <if test="temp != null" >
+        temp,
+      </if>
+      <if test="describeTask != null" >
+        describe_task,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="taskname != null" >
+        #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="posttime != null" >
+        #{posttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null" >
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="coin != null" >
+        #{coin,jdbcType=REAL},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="taskstatus != null" >
+        #{taskstatus,jdbcType=INTEGER},
+      </if>
+      <if test="taskkind != null" >
+        #{taskkind,jdbcType=INTEGER},
+      </if>
+      <if test="temp != null" >
+        #{temp,jdbcType=INTEGER},
+      </if>
+      <if test="describeTask != null" >
+        #{describeTask,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="team.crowdos.crowdsharing.entity.appTask" >
+    update task
+    <set >
+      <if test="taskname != null" >
+        taskName = #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="posttime != null" >
+        postTime = #{posttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null" >
+        deadLine = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="coin != null" >
+        coin = #{coin,jdbcType=REAL},
+      </if>
+      <if test="totalnum != null" >
+        totalNum = #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="taskstatus != null" >
+        taskStatus = #{taskstatus,jdbcType=INTEGER},
+      </if>
+      <if test="taskkind != null" >
+        taskKind = #{taskkind,jdbcType=INTEGER},
+      </if>
+      <if test="temp != null" >
+        temp = #{temp,jdbcType=INTEGER},
+      </if>
+      <if test="describeTask != null" >
+        describe_task = #{describeTask,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="team.crowdos.crowdsharing.entity.appTask" >
+    update task
+    set taskName = #{taskname,jdbcType=VARCHAR},
+      postTime = #{posttime,jdbcType=TIMESTAMP},
+      deadLine = #{deadline,jdbcType=TIMESTAMP},
+      userId = #{userid,jdbcType=INTEGER},
+      userName = #{username,jdbcType=VARCHAR},
+      coin = #{coin,jdbcType=REAL},
+      totalNum = #{totalnum,jdbcType=INTEGER},
+      taskStatus = #{taskstatus,jdbcType=INTEGER},
+      taskKind = #{taskkind,jdbcType=INTEGER},
+      temp = #{temp,jdbcType=INTEGER},
+      describe_task = #{describeTask,jdbcType=LONGVARCHAR}
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="team.crowdos.crowdsharing.entity.appTask" >
+    update task
+    set taskName = #{taskname,jdbcType=VARCHAR},
+      postTime = #{posttime,jdbcType=TIMESTAMP},
+      deadLine = #{deadline,jdbcType=TIMESTAMP},
+      userId = #{userid,jdbcType=INTEGER},
+      userName = #{username,jdbcType=VARCHAR},
+      coin = #{coin,jdbcType=REAL},
+      totalNum = #{totalnum,jdbcType=INTEGER},
+      taskStatus = #{taskstatus,jdbcType=INTEGER},
+      taskKind = #{taskkind,jdbcType=INTEGER},
+      temp = #{temp,jdbcType=INTEGER}
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CrowdOS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="/css/font.css">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <style>
+        input:-webkit-autofill , textarea:-webkit-autofill, select:-webkit-autofill {
+            -webkit-text-fill-color: #8A8D93 !important;
+            -webkit-box-shadow: 0 0 0 1000px transparent  inset !important;
+            background-color:transparent;
+            background-image: none;
+             transition: background-color 50000s ease-in-out 0s; //背景色透明  生效时长  过渡效果  启用时延迟的时间
+        }
+        input {
+             background-color:transparent;
+        }
+        label{
+
+        }
+    </style>
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>Crowd Sharing Platform</h1>
+                  </div>
+                  <p>Developed By CrowdOS Core R&D Team</p>
+				  <p>Tips:</p>
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel-->
+            <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                  <form id="app" method="post" action="http://localhost:8080/user/userRegister" class="text-left form-validate">
+                    <div class="form-group-material">
+                      <label for="register-username" class="label-material">Username</label>
+                      <input id="register-username" type="text" name="userName" required data-msg="Please enter your username" class="input-material">
+                    </div>
+                    <div class="form-group-material">
+                      <label for="register-realname" class="label-material">Realname</label>
+                      <input id="register-realname" type="text" name="realName" required data-msg="Please enter your realname" class="input-material">
+                    </div>
+                    <div class="form-group-material">
+                      <label class="label-material">Gender</label><br />
+                      <input id="register-sex1" type="radio" name="gender" value="male">  male  
+                      <input id="register-sex2" type="radio" name="gender" value="female">  female  
+                    </div>
+                    <div class="form-group-material">
+                      <label for="register-birthday" class="label-material">Birthday</label>
+                      <input id="register-birthday" type="date" name="birthday" required data-msg="Please enter your birthday" class="input-material">
+                    </div>
+                    <div class="form-group-material">
+                      <label for="register-phone" class="label-material">Phone</label>
+                      <input id="register-phone" type="text" name="phoneNumber" required data-msg="Please enter your phone" class="input-material">
+                    </div>
+                    <div class="form-group-material">
+                      <label for="register-email" class="label-material">Email Address</label>
+                      <input id="register-email" type="email" name="email" required data-msg="Please enter a valid email address" class="input-material">
+                    </div>
+                    <div class="form-group-material">
+                      <label for="register-password" class="label-material">Password</label>
+                      <input id="register-password" type="password" name="passWord" required class="input-material">
+                    </div>
+                    <div class="form-group-material">
+                      <label for="register-password" class="label-material">Confirm Password</label>
+                      <input id="register-repeat-password" type="password" name="repeatPassWord" class="input-material">
+                    </div>
+                    <div class="form-group terms-conditions text-center">
+                      <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
+                      <label for="register-agree">I agree with the terms and policy</label>
+                    </div>
+                    <div class="form-group text-center">
+                      <input id="register" type="submit" value="Register" class="btn btn-primary" onclick="pwd_encrypt()">
+                    </div>
+                  </form><small>Already have an account? </small><a href="login" class="signup">Login</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights text-center">
+        <p>Design by <a href="#" class="external">CrowdOS</a></p>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/vendor/chart.js/Chart.min.js"></script>
+    <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/js/front.js"></script>
+
+    <!-- password encrypt-->
+    <script src="/js/sha256.min.js"></script>
+    <script>
+      function pwd_encrypt(){
+        const pwd = document.getElementById('register-password').value;
+        document.getElementById('register-password').value = sha256(pwd);
+        document.forms[0].submit()
+      }
+    </script>
+  </body>
+</html>

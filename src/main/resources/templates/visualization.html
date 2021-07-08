@@ -1,0 +1,747 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>数据一体化协同处理可视化系统</title>
+<link href="/visualization/css/style.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="/visualization/js/echarts.min.js" charset="utf-8"></script>
+<style>
+	#container{
+		margin: auto;
+		margin-top: 5px;
+		width: 760px;
+		height: 340px;
+		}
+</style>
+</head>
+<body>
+<div class="wpbox">
+<div class="bnt">
+  <div class="topbnt_left fl">
+   <ul><li class="active"><a href="#">数据融合</a></li>
+      <li><a href="#">数据存储</a></li>
+      <li><a href="#">任务调度</a></li>
+   </ul>
+  </div>
+  <h1 class="tith1 fl">数据一体化协同处理可视化系统</h1>
+  <div class=" fr topbnt_right">
+    <ul>
+       <li><a href="#">性能评估</a></li>
+       <li><a href="#">资源管理</a></li>
+       <li><a href="#">环境监测</a></li>
+    </ul>
+   </ul>
+  </div>
+</div>
+<!-- bnt end -->
+<div class="left1">
+    <div class="aleftboxttop"><h2 class="tith2">今日感知任务数据统计</h2>
+    <div class="lefttoday_tit" style=" height:8%"><p class="fl">地区：西安</p><p class="fr">2019-04-23</p></div>
+    <div class="lefttoday_number">
+      <div class="widget-inline-box text-center fl">
+        <p>数据采集任务</p>
+        <h3 class="ceeb1fd">54</h3>
+        <h4 class="text-muted pt6">环比<img src="/img/iconup.png" height="16" />2%</h4>
+      </div>
+      <div class="widget-inline-box text-center fl">
+         <p>已处理</p>
+        <h3 class="c24c9ff">54</h3>
+        <h4 class="text-muted pt6">环比<img src="/img/icondown.png" height="16" />3%</h4>
+      </div>
+      <div class="widget-inline-box text-center fl">
+         <p>未处理</p>
+        <h3 class="cffff00">4</h3>
+        <h4 class="text-muted pt6">环比<img src="/img/icondown.png" height="16" />3%</h4>
+      </div>
+      <div class="widget-inline-box text-center fl">
+         <p>处理中</p>
+        <h3 class="c11e2dd">4</h3>
+        <h4 class="text-muted pt6">环比<img src="/img/icondown.png" height="16" />3%</h4>
+      </div>
+    </div>
+    <!-- lefttoday_number end -->
+    </div>
+    <div class="aleftboxtmidd">
+      <h2 class="tith2">数据采集点地区统计</h2>
+          <div class="lefttoday_tit height ht"><p class="fl">状态：已处理</p><p class="fr">时间段：2019-04-20 至 2019-04-23</p></div>
+      <div id="aleftboxtmidd" class="aleftboxtmiddcont"></div>
+  </div>
+  <div class="aleftboxtbott">
+    <h2 class="tith2">用户状态统计</h2>
+      <div class="lefttoday_tit"><p class="fl">状态：正常</p><p class="fr">时间：2020-04-23</p></div>
+      <div id="aleftboxtbott" class="aleftboxtbott_cont"></div>
+</div>
+</div>
+<!--  left1 end -->
+<div class="mrbox">
+      <div class="mrbox_topmidd" style="width: 69%;">
+          <div class="amiddboxttop">
+              <h2 class="tith2 pt1">实时监控统计</h2>
+                <div id="container"></div>
+            </div>
+            <!--  amiddboxttop end-->
+                <div class="amidd_bott">
+                  <div class="amiddboxtbott1 fl" >
+                    <h2 class="tith2 pt1">传感数据类型分析</h2>
+                    <div id="pleftbox2bott_cont" class="lpeftb2otcont" ></div>
+                  </div>
+
+                <div class="amiddboxtbott2 fl"><h2 class="tith2 pt1">数据规模统计</h2>
+                    <div id="amiddboxtbott2" class="amiddboxtbott2content"></div>
+                </div>
+            </div>
+            <!-- amidd_bott end -->
+          </div>
+        <!-- mrbox_top end -->
+        <div class="mrbox_top_right">
+          <div class="arightboxtop"><h2 class="tith2">问题分析</h2>
+            <div class="lefttoday_tit"><p class="fl">状态：正常</p><p class="fr">时间段：2020-4-23</p></div>
+            <div class="left2_table">
+               <ul>
+                    <li>
+                    <p class="fl"><b>西安市轨道交通</b><br>
+                      描述一<br>
+                    </p>
+                    <p class="fr pt17">2020-04-23</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>西安市轨道交通</b><br>
+                      描述二<br>
+                    </p>
+                    <p class="fr pt17">2020-04-23</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>西安市轨道交通</b><br>
+                      描述三<br>
+                    </p>
+                    <p class="fr pt17">2020-04-23</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>西安市轨道交通</b><br>
+                      描述四<br>
+                    </p>
+                    <p class="fr pt17">2020-04-23</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>西安市轨道交通</b><br>
+                      描述五<br>
+                    </p>
+                    <p class="fr pt17">2020-04-23</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>西安市轨道交通</b><br>
+                      描述六<br>
+                    </p>
+                    <p class="fr pt17">2020-04-23</p>
+                    </li>
+               </ul>
+            </div>
+
+          </div>
+            <div class="arightboxbott"><h2 class="tith2 ">传感数据近七日分析</h2>
+              <div class="lefttoday_tit"><p class="fl">状态：正常</p><p class="fr">时间：2020-04-23</p></div>
+              <div id="arightboxbott" class="arightboxbottcont" style=""></div>
+            </div>
+        </div>
+        <!-- mrbox_top_right end -->
+      </div>
+
+    </div>
+</div>
+
+                <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('aleftboxtmidd'));
+                        option = {
+                          color:['#76c4bf','#e5ffc7','#508097','#4d72d9'],
+                            backgroundColor: 'rgba(1,202,217,.2)',
+                            grid: {
+                											left:10,
+                											right:40,
+                											top:20,
+                											bottom:0,
+                                      containLabel: true
+                										},
+                                      calculable : true,
+                                      series : [
+
+                                          {
+                                              name:'面积模式',
+                                              type:'pie',
+                                              radius : [5, 60],
+                                              center : ['50%', '55%'],
+                                              roseType : 'area',
+                                              data:[
+                                                  {value:10, name:'地点一'},
+                                                  {value:5, name:'地点二'},
+                                                  {value:15, name:'地点三'},
+                                                  {value:25, name:'地点四'}
+                                              ]
+                                          }
+                                      ]
+                                  };
+                        myChart.setOption(option);
+                    </script>
+                    <script type="text/javascript">
+                            var myChart = echarts.init(document.getElementById('aleftboxtbott'));
+                            option = {
+                                backgroundColor: 'rgba(1,202,217,.2)',
+                                grid: {
+                                    left:60,
+                                    right:20,
+                                    top:45,
+                                    bottom:40
+                                },
+
+                                toolbox: {
+                                    feature: {
+                                        dataView: {show: true, readOnly: false},
+                                        magicType: {show: true, type: ['line', 'bar']},
+                                        restore: {show: true},
+                                        saveAsImage: {show: true}
+                                    }
+                                },
+                                legend: {
+                                    top:10,
+                                    textStyle:{
+                                        fontSize: 10,
+                                        color:'rgba(255,255,255,.7)'
+                                    },
+                                    data:['近期活跃','在线状态','离线状态']
+                                },
+                                xAxis: [
+                                    {
+                                        type: 'category',
+                                        axisLine:{
+                                            lineStyle:{
+                                                color:'rgba(255,255,255,.2)'
+                                            }
+                                        },
+                                        splitLine:{
+                                            lineStyle:{
+                                                color:'rgba(255,255,255,.1)'
+                                            }
+                                        },
+                                        axisLabel:{
+                                            color:"rgba(255,255,255,.7)"
+                                        },
+
+                                        data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+                                        axisPointer: {
+                                            type: 'shadow'
+                                        }
+                                    }
+                                ],
+                                yAxis: [
+                                    {
+                                        type: 'value',
+                                        name: '',
+                                        min: 0,
+                                        max: 250,
+                                        interval: 50,
+                                        axisLine:{
+                                            lineStyle:{
+                                                color:'rgba(255,255,255,.3)'
+                                            }
+                                        },
+                                        splitLine:{
+                                            lineStyle:{
+                                                color:'rgba(255,255,255,.01)'
+                                            }
+                                        },
+
+                                        axisLabel: {
+                                            formatter: '{value}'
+                                        }
+                                    },
+                                    {
+                                        type: 'value',
+                                        name: '',
+                                        max: 25,
+                                        interval: 5,
+                                        axisLine:{
+                                            lineStyle:{
+                                                color:'rgba(255,255,255,0)'
+                                            }
+                                        },
+                                        splitLine:{
+                                            lineStyle:{
+                                                color:'rgba(255,255,255,0)'
+                                            }
+                                        },
+                                        axisLabel: {
+                                            formatter: '{value} °C'
+                                        }
+                                    }
+                                ],
+                                series: [
+
+                                    {
+                                        name:'近期活跃',
+                                        type:'bar',
+                                        itemStyle: {
+                                            normal: {
+                                                color: new echarts.graphic.LinearGradient(
+                                                    0, 0, 0, 1,
+                                                    [
+                                                        {offset: 0, color: '#b266ff'},
+                                                        {offset: 1, color: '#121b87'}
+                                                    ]
+                                                )
+                                            }
+                                        },
+                                        data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+                                    },
+                                    {
+                                        name:'在线状态',
+                                        type:'bar',
+
+                                        itemStyle: {
+                                            normal: {
+                                                color: new echarts.graphic.LinearGradient(
+                                                    0, 0, 0, 1,
+                                                    [
+                                                        {offset: 0, color: '#00f0ff'},
+                                                        {offset: 1, color: '#032a72'}
+                                                    ]
+                                                )
+                                            }
+                                        },
+                                        data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+                                    },
+                                    {
+                                        name:'离线状态',
+                                        type:'bar',
+                                        itemStyle: {
+                                            normal: {
+                                                color: new echarts.graphic.LinearGradient(
+                                                    0, 0, 0, 1,
+                                                    [
+                                                        {offset: 0, color: '#fffb34'},
+                                                        {offset: 1, color: '#032a72'}
+                                                    ]
+                                                )
+                                            }
+                                        },
+                                        data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+                                    }
+                                ]
+                            };
+                            myChart.setOption(option);
+                        </script>
+                        <script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('amiddboxtbott1'));
+                                var data = [];
+
+                                option = {
+                                    backgroundColor: 'rgba(1,202,217,.2)',
+                                    grid: {
+                                      left:40,
+                                      right:40,
+                                      top:50,
+                                      bottom:40
+                        										},
+                                    title: {
+                                      top: 5,
+                                      left:20,
+                                        textStyle:{
+                                          fontSize:10,
+                                          color:'rgba(255,255,255,.6)'
+                                        },
+                                        text: '环比类型：日环比'
+                                    },
+                                    legend: {
+                                        right: 10,
+                                        top: 5,
+                                        textStyle:{
+                                          fontSize:10,
+                                          color:'rgba(255,255,255,.6)'
+                                        },
+                                        data: ['2019', '2020']
+                                    },
+                                    xAxis: {
+                                      axisLine:{
+                                        lineStyle:{
+                                          color:'rgba(255,255,255,.2)'
+                                        }
+                                      },
+                                      splitLine:{
+                                        lineStyle:{
+                                          color:'rgba(255,255,255,.1)'
+                                        }
+                                      },
+                                      axisLabel:{
+                                          color:"rgba(255,255,255,.7)"
+                                      }
+                                    },
+                                    yAxis: {
+                                      axisLine:{
+                                        lineStyle:{
+                                          color:'rgba(255,255,255,.2)'
+                                        }
+                                      },
+                                      splitLine:{
+                                        lineStyle:{
+                                          color:'rgba(255,255,255,.1)'
+                                        }
+                                      },
+                                      axisLabel:{
+                                          color:"rgba(255,255,255,.7)"
+                                      },
+                                        scale: true
+                                    },
+                                    series: [{
+                                        name: '2019',
+                                        data: data[0],
+                                        type: 'scatter',
+                                        symbolSize: function (data) {
+                                            return Math.sqrt(data[2]) / 5e2;
+                                        },
+                                        label: {
+                                            emphasis: {
+                                                show: true,
+                                                formatter: function (param) {
+                                                    return param.data[3];
+                                                },
+                                                position: 'top'
+                                            }
+                                        },
+                                        itemStyle: {
+                                            normal: {
+                                                shadowBlur: 10,
+                                                shadowColor: 'rgba(120, 36, 50, 0.5)',
+                                                shadowOffsetY: 5,
+                                                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                                                    offset: 0,
+                                                    color: 'rgb(251, 118, 123)'
+                                                }, {
+                                                    offset: 1,
+                                                    color: 'rgb(204, 46, 72)'
+                                                }])
+                                            }
+                                        }
+                                    }, {
+                                        name: '2020',
+                                        data: data[1],
+                                        type: 'scatter',
+                                        symbolSize: function (data) {
+                                            return Math.sqrt(data[2]) / 5e2;
+                                        },
+                                        label: {
+                                            emphasis: {
+                                                show: true,
+                                                formatter: function (param) {
+                                                    return param.data[3];
+                                                },
+                                                position: 'top'
+                                            }
+                                        },
+                                        itemStyle: {
+                                            normal: {
+                                                shadowBlur: 10,
+                                                shadowColor: 'rgba(25, 100, 150, 0.5)',
+                                                shadowOffsetY: 5,
+                                                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                                                    offset: 0,
+                                                    color: 'rgb(129, 227, 238)'
+                                                }, {
+                                                    offset: 1,
+                                                    color: 'rgb(25, 183, 207)'
+                                                }])
+                                            }
+                                        }
+                                    }]
+                                };
+                                myChart.setOption(option);
+                            </script>
+                            <script type="text/javascript">
+                            var myChart = echarts.init(document.getElementById('pleftbox2bott_cont'));
+                            option = {
+                              color:['#7ecef4'],
+                                backgroundColor: 'rgba(1,202,217,.2)',
+                                grid: {
+                    											left:40,
+                    											right:20,
+                    											top:30,
+                    											bottom:0,
+                                          containLabel: true
+                    										},
+
+                                      xAxis: {
+                                          type: 'value',
+                                          axisLine:{
+                                           lineStyle:{
+                                             color:'rgba(255,255,255,0)'
+                                           }
+                                         },
+                                         splitLine:{
+                                           lineStyle:{
+                                             color:'rgba(255,255,255,0)'
+                                           }
+                                         },
+                                         axisLabel:{
+                                             color:"rgba(255,255,255,0)"
+                                         },
+                                          boundaryGap: [0, 0.01]
+                                      },
+                                      yAxis: {
+                                          type: 'category',
+                                          axisLine:{
+                                           lineStyle:{
+                                             color:'rgba(255,255,255,.5)'
+                                           }
+                                         },
+                                         splitLine:{
+                                           lineStyle:{
+                                             color:'rgba(255,255,255,.1)'
+                                           }
+                                         },
+                                         axisLabel:{
+                                             color:"rgba(255,255,255,.5)"
+                                         },
+                                          data: ['公安','渗水','电力','人流量','能耗']
+                                      },
+                                      series: [
+                                          {
+                                              name: '2011年',
+                                              type: 'bar',
+                                              barWidth :20,
+                                              itemStyle: {
+                                                  normal: {
+                                                      color: new echarts.graphic.LinearGradient(
+                                                          1, 0, 0, 1,
+                                                          [
+                                                              {offset: 0, color: 'rgba(230,253,139,.7)'},
+                                                              {offset: 1, color: 'rgba(41,220,205,.7)'}
+                                                          ]
+                                                      )
+                                                  }
+                                              },
+                                              data: [18203, 23489, 29034, 104970, 131744]
+                                          }
+                                      ]
+                                  };
+                            myChart.setOption(option);
+                        </script>
+                        <script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('amiddboxtbott2'));
+                                option = {
+                                    backgroundColor: 'rgba(1,202,217,.2)',
+                                    grid: {
+                        											left:60,
+                        											right:60,
+                        											top:50,
+                        											bottom:40
+                        										},
+
+                              toolbox: {
+                                  feature: {
+                                      dataView: {show: true, readOnly: false},
+                                      magicType: {show: true, type: ['line', 'bar']},
+                                      restore: {show: true},
+                                      saveAsImage: {show: true}
+                                  }
+                              },
+                              legend: {
+                                top:10,
+                                textStyle:{
+                                  fontSize: 10,
+                                  color:'rgba(255,255,255,.7)'
+                                },
+                                  data:['2019年','2020年','同比增速']
+                              },
+                              xAxis: [
+                                  {
+                                      type: 'category',
+                                      axisLine:{
+                												lineStyle:{
+                													color:'rgba(255,255,255,.2)'
+                												}
+                											},
+                											splitLine:{
+                												lineStyle:{
+                													color:'rgba(255,255,255,.1)'
+                												}
+                											},
+                											axisLabel:{
+                													color:"rgba(255,255,255,.7)"
+                											},
+
+                                      data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+                                      axisPointer: {
+                                          type: 'shadow'
+                                      }
+                                  }
+                              ],
+                              yAxis: [
+                                  {
+                                      type: 'value',
+                                      name: '',
+                                      min: 0,
+                                      max: 250,
+                                      interval: 50,
+                                      axisLine:{
+                												lineStyle:{
+                													color:'rgba(255,255,255,.3)'
+                												}
+                											},
+                											splitLine:{
+                												lineStyle:{
+                													color:'rgba(255,255,255,.01)'
+                												}
+                											},
+
+                                      /*axisLabel: {
+                                          formatter: '{value} ml'
+                                      }*/
+                                  },
+                                  {
+                                      type: 'value',
+                                      name: '',
+                                      max: 25,
+                                      interval: 5,
+                                      axisLine:{
+                												lineStyle:{
+                													color:'rgba(255,255,255,.3)'
+                												}
+                											},
+                											splitLine:{
+                												lineStyle:{
+                													color:'rgba(255,255,255,.1)'
+                												}
+                											},
+                                      /*axisLabel: {
+                                          formatter: '{value} °C'
+                                      }*/
+                                  }
+                              ],
+                              series: [
+
+                                  {
+                                      name:'2019年',
+                                      type:'bar',
+                                      itemStyle: {
+                                                      normal: {
+                                                          color: new echarts.graphic.LinearGradient(
+                                                              0, 0, 0, 1,
+                                                              [
+                                                                  {offset: 0, color: '#b266ff'},
+                                                                  {offset: 1, color: '#121b87'}
+                                                              ]
+                                                          )
+                                                      }
+                                                  },
+                                      data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+                                  },
+                                  {
+                                      name:'2020年',
+                                      type:'bar',
+                                      itemStyle: {
+                                                      normal: {
+                                                          color: new echarts.graphic.LinearGradient(
+                                                              0, 0, 0, 1,
+                                                              [
+                                                                  {offset: 0, color: '#00f0ff'},
+                                                                  {offset: 1, color: '#032a72'}
+                                                              ]
+                                                          )
+                                                      }
+                                                  },
+                                      data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+                                  },
+                                  {
+                                      name:'同比增速',
+                                      type:'line',
+                                      itemStyle: {
+                                                      normal: {
+                                                          color: new echarts.graphic.LinearGradient(
+                                                              0, 0, 0, 1,
+                                                              [
+                                                                  {offset: 0, color: '#fffb34'},
+                                                                  {offset: 1, color: '#fffb34'}
+                                                              ]
+                                                          )
+                                                      }
+                                                  },
+                                      yAxisIndex: 1,
+                                      data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+                                  }
+                              ]
+                          };
+                                myChart.setOption(option);
+                            </script>
+                            <script type="text/javascript">
+                                    var myChart = echarts.init(document.getElementById('arightboxbott'));
+                                    option = {
+                                      color:['#7de494','#7fd7b1', '#5578cf', '#5ebbeb', '#d16ad8','#f8e19a',  '#00b7ee', '#81dabe','#5fc5ce'],
+                                        backgroundColor: 'rgba(1,202,217,.2)',
+
+                                        grid: {
+                                            left: '5%',
+                                            right: '8%',
+                                            bottom: '7%',
+                                            top:'8%',
+                                            containLabel: true
+                                        },
+                                        toolbox: {
+                                            feature: {
+                                                saveAsImage: {}
+                                            }
+                                        },
+                                        xAxis: {
+                                            type: 'category',
+                                            boundaryGap: false,
+                                            axisLine:{
+                                              lineStyle:{
+                                                color:'rgba(255,255,255,.2)'
+                                              }
+                                            },
+                                            splitLine:{
+                                              lineStyle:{
+                                                color:'rgba(255,255,255,.1)'
+                                              }
+                                            },
+                                            axisLabel:{
+                                                color:"rgba(255,255,255,.7)"
+                                            },
+                                            data: ['4-17','4-18','4-19','4-20','4-21','4-22','4-23']
+                                        },
+                                        yAxis: {
+                                            type: 'value',
+                                            axisLine:{
+                                              lineStyle:{
+                                                color:'rgba(255,255,255,.2)'
+                                              }
+                                            },
+                                            splitLine:{
+                                              lineStyle:{
+                                                color:'rgba(255,255,255,.1)'
+                                              }
+                                            },
+                                            axisLabel:{
+                                                color:"rgba(255,255,255,.7)"
+                                            },
+                                        },
+                                        series: [
+                                            {
+                                                name:'2014年',
+                                                type:'line',
+                                                stack: '总量',
+                                                  areaStyle: {normal: {}},
+                                                data:[120, 132, 101, 134, 90, 230, 210]
+                                            }
+
+                                        ]
+                                        };
+                                    myChart.setOption(option);
+                                </script>
+
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=955f6bf0f9e1ef5b11744381dbc5767d"></script>
+<script type="text/javascript">
+    var map = new AMap.Map('container', {
+        zoom:11,//级别
+        center: [108.946961,34.261445],//中心点坐标
+        viewMode:'3D',//使用3D视图
+        mapStyle:'amap://styles/darkblue', 
+    });
+</script>
+</body>
+</html>
